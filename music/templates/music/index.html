@@ -1,0 +1,15 @@
+{%extends "music/base.html"%}
+{% block title %} Albums {% endblock %}
+{% block body %}<h1> Here are all the albums </h1>
+
+<ul>
+	{% if all_albums %}
+		{% for album in all_albums %}
+			<li> <a href= {% url 'music:detail' album.id %}  style="color: rgba(0.5,255,255,255)"> 
+			{{album.album_title}} by {{album.artist}} </a> </li>
+		{% endfor %}
+	{% else %}
+		<h1> The data base is Empty. No albums are in there </h1>
+	{% endif %}
+</ul>
+{% endblock %}
